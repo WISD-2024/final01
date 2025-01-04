@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ProductController;
 use App\Models\News;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -36,12 +38,8 @@ Route::get('/adminlogin', function () {
     return view('adminlogin');
 });
 
+
 Route::get('/', function () {
-    return view('home');
-});
-
-
-Route::get('/home', function () {
     return view('home');
 })->name('home');
 
@@ -49,7 +47,13 @@ Route::get('/news', function () {
     return view('news');
 });
 
-Route::get('/news', [NewsController::class, 'news']);
+Route::get('/news', [NewsController::class, 'news'])->name('news');
+
+Route::get('/cart', [CartController::class, 'cart'])->name('cart');
+
+Route::get('/', [ProductController::class, 'index'])->name('home');
+
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -65,6 +69,7 @@ Route::post('/logout', function () {
     Auth::logout();
     return redirect('/');
 })->name('logout');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

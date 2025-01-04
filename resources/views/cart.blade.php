@@ -1,12 +1,10 @@
 @extends('layouts.app')
 
-@section('title', '收藏庫')
+@section('title', '歡迎來到 Dream 遊戲商店')
 
 @section('content')
-
-
     <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-        {{ __('Welcome, ') }}{{ Auth::user()->name }}{{ __('  這是您的收藏庫') }}
+        {{ __('您的購物車') }}
     </h2>
 
     <div class="py-12">

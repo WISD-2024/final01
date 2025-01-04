@@ -24,7 +24,7 @@
     <body class="font-sans text-gray-900 antialiased bg-gray-100 dark:bg-gray-900">
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
         <div>
-            <a href="/home">
+            <a href="/">
                 <img style="color:white;width:300px;height:80px;vertical-align:middle;" src="{{ asset('images/DREAM_logo.png') }}" alt="Logo">
             </a>
         </div>
