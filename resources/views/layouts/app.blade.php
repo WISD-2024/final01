@@ -1,48 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
-    <title>@yield('title', 'Dream 商店')</title>
     <meta charset="UTF-8">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title', 'Dream Game Store')</title>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <style>
         body {
             background: linear-gradient(135deg, #184353 30%, #182D40, #1B2637, #1B2939);
             color: #FFFFFF;
             font-weight: bold;
-            margin: 0;
-            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background: linear-gradient(135deg, #3B6491 , #356B9A , #254E8B , #102370 );
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            width: 50%;
+            margin: 20px auto 0;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            margin-left: 10px;
+            margin-right: 10px;
         }
     </style>
-    
 </head>
 <body>
+
 <header>
-    <table>
-        <tr>
-            <td style="width:25%;"></td>
-            <td style="width:50%;">
-                <h1>
-                    <img src="{{ asset('Dream_pic/DREAM_logo.png') }}" alt="Dream Logo" style="width:300px;height: 80px;">
-                    歡迎來到Dream-遊戲商店
-                </h1>
-            </td>
-            <td style="width:25%; text-align: right;">
-                <!-- 放置右侧内容 -->
-            </td>
-        </tr>
-    </table>
+    <div style="text-align: center;">
+        <table>
+            <tr>
+                <td style="width: 25%;"></td>
+                <td style="width: 50%;">
+                    <h1>
+                        <a href="/home"><img style="color:white;width:300px;height:80px;vertical-align:middle;" src="{{ asset('images/DREAM_logo.png') }}" alt="Logo"></a>
+                        歡迎來到 Dream 遊戲商店
+                    </h1>
+                </td>
+            </tr>
+        </table>
+    </div>
 </header>
 
 <main>
     @yield('content')
 </main>
 
-<footer>
-    <p>&copy; 2025 Dream. 保留所有权利。</p>
-</footer>
 
-<script src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>

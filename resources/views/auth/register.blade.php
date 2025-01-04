@@ -1,4 +1,5 @@
 <x-guest-layout>
+    @section('title', '註冊')
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -44,7 +45,7 @@
                 {{ __('已註冊?') }}
             </a>
 
-            <x-primary-button class="ms-4">
+            <x-primary-button class="ms-4" style="margin-right: 10px; padding: 10px 20px; background-color: #73AE22; color: white; border: none; border-radius: 5px; cursor: pointer;">
                 {{ __('註冊') }}
             </x-primary-button>
         </div>
