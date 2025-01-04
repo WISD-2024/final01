@@ -5,7 +5,7 @@ use App\Http\Controllers\NewsController;
 use App\Models\News;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +16,22 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+// 顯示登入頁面（GET 請求）
+Route::get('/admin/login', [AdminController::class, 'showLoginForm'])->name('admin.login');
+
+// 登入表單提交（POST 請求）
+Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.login.post');
+
+// 登出（POST 請求）
+Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+
+// 管理員主頁（GET 請求）
+Route::get('/admin/home', [AdminController::class, 'home'])->name('admin.home');
+
+Route::get('/adminlogin', function () {
+    return view('adminlogin');
+});
 
 Route::get('/', function () {
     return view('home');
