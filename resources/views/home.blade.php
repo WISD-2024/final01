@@ -4,6 +4,7 @@
 
 @section('content')
 
+
     <td style="width: 25%;">
     @auth
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -74,6 +75,8 @@
     </td>
 
 @endsection
+
+
 
 
 

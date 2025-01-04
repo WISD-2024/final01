@@ -29,6 +29,7 @@
             margin-left: 10px;
             margin-right: 10px;
         }
+
     </style>
 </head>
 <body>
@@ -53,6 +54,11 @@
     @yield('content')
 </main>
 
+
+
+<footer>
+
+</footer>
 
 </body>
 </html>
