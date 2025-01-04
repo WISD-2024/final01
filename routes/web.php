@@ -3,7 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.login');
+
+
+Route::get('/adminlogin', function () {
+    return view('adminlogin');
+});
 
 Route::get('/', function () {
     return view('home');
