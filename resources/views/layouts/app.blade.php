@@ -1,36 +1,48 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html>
+<head>
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title', 'Dream 商店')</title>
+    <meta charset="UTF-8">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            background: linear-gradient(135deg, #184353 30%, #182D40, #1B2637, #1B2939);
+            color: #FFFFFF;
+            font-weight: bold;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    
+</head>
+<body>
+<header>
+    <table>
+        <tr>
+            <td style="width:25%;"></td>
+            <td style="width:50%;">
+                <h1>
+                    <img src="{{ asset('Dream_pic/DREAM_logo.png') }}" alt="Dream Logo" style="width:300px;height: 80px;">
+                    歡迎來到Dream-遊戲商店
+                </h1>
+            </td>
+            <td style="width:25%; text-align: right;">
+                <!-- 放置右侧内容 -->
+            </td>
+        </tr>
+    </table>
+</header>
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+<main>
+    @yield('content')
+</main>
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+<footer>
+    <p>&copy; 2025 Dream. 保留所有权利。</p>
+</footer>
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
-    </body>
+<script src="{{ asset('js/script.js') }}"></script>
+</body>
 </html>
