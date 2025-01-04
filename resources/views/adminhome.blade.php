@@ -87,7 +87,7 @@
 
 <nav class="navbar">
     <a href="{{ route('admin.home') }}">首頁</a>
-    <a href="{{ route('admin.home') }}">新聞管理</a>
+    <a href="{{ route('admin.news') }}">新聞管理</a>
     <a href="{{ route('admin.home') }}">商品管理</a>
     <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">登出</a>
 </nav>

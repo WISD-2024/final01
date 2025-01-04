@@ -16,6 +16,12 @@ use App\Http\Controllers\AdminController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::put('/admin/news/{id}', [AdminController::class, 'update'])->name('admin.news.update');
+Route::get('/admin/news/{id}/edit', [AdminController::class, 'edit'])->name('admin.news.edit');
+Route::delete('/admin/news/{id}', [AdminController::class, 'destroy'])->name('admin.news.destroy');
+
+// 顯示新聞頁面（GET 請求）
+Route::get('/admin/news', [AdminController::class, 'news'])->name('admin.news');
 
 // 顯示登入頁面（GET 請求）
 Route::get('/admin/login', [AdminController::class, 'showLoginForm'])->name('admin.login');
