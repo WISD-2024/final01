@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsController;
+use App\Models\News;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +22,12 @@ Route::get('/', function () {
 });
 
 Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/news', function () {
+    return view('news');
+});
+
+Route::get('/news', [NewsController::class, 'news']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
