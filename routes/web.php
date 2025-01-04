@@ -5,7 +5,9 @@ use App\Http\Controllers\NewsController;
 use App\Models\News;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +24,7 @@ Route::delete('/admin/news/{id}', [AdminController::class, 'destroy'])->name('ad
 
 // 顯示新聞頁面（GET 請求）
 Route::get('/admin/news', [AdminController::class, 'news'])->name('admin.news');
+
 
 // 顯示登入頁面（GET 請求）
 Route::get('/admin/login', [AdminController::class, 'showLoginForm'])->name('admin.login');
@@ -43,7 +46,10 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
 
 Route::get('/news', function () {
     return view('news');
@@ -53,7 +59,18 @@ Route::get('/news', [NewsController::class, 'news']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('/');
+
+
+Route::middleware(['auth', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
+
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/');
+})->name('logout');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

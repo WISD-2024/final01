@@ -11,6 +11,25 @@
             color: #FFFFFF;
             font-weight: bold;
         }
+        .navbar {
+            background: linear-gradient(135deg, #3B6491 , #356B9A , #254E8B , #102370 );
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            width: 50%;
+            margin: 20px auto 0;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
     </style>
 </head>
 <body>
@@ -22,7 +41,7 @@
                 <td style="width: 25%;"></td>
                 <td style="width: 50%;">
                     <h1>
-                        <img style="color:white;width:300px;height:80px;vertical-align:middle;" src="{{ asset('images/DREAM_logo.png') }}" alt="Logo">
+                        <a href="/home"><img style="color:white;width:300px;height:80px;vertical-align:middle;" src="{{ asset('images/DREAM_logo.png') }}" alt="Logo"></a>
                         歡迎來到 Dream 遊戲商店
                     </h1>
                 </td>
@@ -34,6 +53,8 @@
 <main>
     @yield('content')
 </main>
+
+
 
 <footer>
 
