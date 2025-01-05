@@ -13,6 +13,7 @@
             <nav class="navbar">
                 <a href="{{ route('home') }}">首頁</a>
                 <a href="{{ route('dashboard') }}">收藏庫</a>
+                <a href="{{ route('news') }}">新聞</a>
                 <div class="dropdown" style="margin: 0 10px;">
                     <p style="color: white; font-size: 20px; font-weight: bold;">類別</p>
                     <div class="dropdown-content" style="background-color: rgba(0, 0, 0, 0.7); border-radius: 5px; padding: 10px;">
@@ -46,6 +47,7 @@
             <nav class="navbar">
                 <a href="{{ route('home') }}">首頁</a>
                 <a href="{{ route('dashboard') }}">收藏庫</a>
+                <a href="{{ route('news') }}">新聞</a>
                 <div class="dropdown" style="margin: 0 10px;">
                     <p style="color: white; font-size: 20px; font-weight: bold;">類別</p>
                     <div class="dropdown-content" style="background-color: rgba(0, 0, 0, 0.7); border-radius: 5px; padding: 10px;">

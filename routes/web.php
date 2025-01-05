@@ -40,16 +40,19 @@ Route::get('/', function () {
     return view('home');
 });
 
-
 Route::get('/home', function () {
     return view('home');
 })->name('home');
 
 Route::get('/news', function () {
     return view('news');
-});
+})->name('news');
 
-Route::get('/news', [NewsController::class, 'news']);
+// 新聞列表頁面
+Route::get('/news', [NewsController::class, 'index'])->name('news');
+
+// 新聞詳細頁面
+Route::get('/news/{id}', [NewsController::class, 'show'])->name('shownews');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
