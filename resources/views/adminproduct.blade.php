@@ -94,14 +94,14 @@
 
     <script>
         // 刪除確認函數
-        function confirmDelete(event, newsId) {
+        function confirmDelete(event, productId) {
             // 阻止默認操作
             event.preventDefault();
 
             // 彈出確認提示框
             if (confirm("確定要刪除這筆資料嗎？")) {
                 // 使用 AJAX 刪除資料
-                fetch(`/admin/news/${newsId}`, {
+                fetch(`/admin/product/${productId}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
