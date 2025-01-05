@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>修改新聞</title>
+    <title>修改商品</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -123,7 +123,7 @@
 </form>
 
 <div class="title">
-    <h2>新聞修改</h2>
+    <h2>商品修改</h2>
 </div>
 
 <div class="container">
@@ -132,27 +132,31 @@
             <thead style="background-color: #3B6491">
             <tr>
                 <th style="width: 5%;">ID</th>
-                <th style="width: 10%;">標題</th>
-                <th style="width: 45%;">內容</th>
-                <th style="width: 10%;">日期</th>
-                <th style="width: 5%;">作者</th>
-                <th style="width: 10%;">創建時間</th>
-                <th style="width: 10%;">更新時間</th>
-                <th style="width: 5%;">新增修改</th>
+                <th style="width: 5%;">類別</th>
+                <th style="width: 5%;">賣家</th>
+                <th style="width: 10%;">商品名稱</th>
+                <th style="width: 10%;">商品圖片</th>
+                <th style="width: 5%;">價格</th>
+                <th style="width: 10%;">庫存</th>
+                <th style="width: 45%;">遊戲資訊</th>
+                <th style="width: 5%;">修改</th>
             </tr>
             </thead>
             <tbody>
             <tr style="background-color: #3B6491;">
-                <form action="{{ route('admin.news.update', ['id' => $news->id]) }}" method="POST">
+                <form action="{{ route('admin.product.update', ['id' => $product->id]) }}" method="POST">
                     @csrf
                     @method('PUT')
-                    <td>{{ $news->id }}</td>
-                    <td><textarea style="resize: none; width: 90%; height: 50px;" name="title">{{ $news->title }}</textarea></td>
-                    <td><textarea style="resize: none; width: 90%; height: 500px;" name="content">{{ $news->content }}</textarea></td>
-                    <td>{{ $news->date }}</td>
-                    <td>{{ $news->name }}</td>
-                    <td>{{ $news->created_at }}</td>
-                    <td>{{ $news->updated_at }}</td>
+                    <td>{{ $product->id }}</td>
+                    <td>{{ $product->category_id }}</td>
+                    <td>{{ $product->seller_id}}</td>
+                    <td>{{ $product->name }}</td>
+                    <td style="text-align: center; vertical-align: middle;">
+                        <img src="{{ asset('images/' . $product->pictures) }}" alt="{{ $product->name }}" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                    </td>
+                    <td><textarea style="resize: none; width: 90%; height: 50px;" name="price">{{ $product->price }}</textarea></td>
+                    <td><textarea style="resize: none; width: 90%; height: 50px;" name="inventory">{{ $product->inventory }}</textarea></td>
+                    <td><textarea style="resize: none; width: 90%; height: 100px;" name="detail">{{ $product->detail }}</textarea></td>
                     <td>
                         <button type="submit">提交修改</button>
                     </td>

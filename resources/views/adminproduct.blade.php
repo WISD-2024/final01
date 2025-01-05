@@ -62,7 +62,7 @@
         .container {
             display: flex;
             margin: 20px auto;
-            width: 50%;
+            width: 50%; /* 設定容器寬度為50% */
             height: auto;
             flex-direction: column;
         }
@@ -81,6 +81,7 @@
             color: white;
             text-align: center;
             padding: 10px;
+            position: fixed;
             bottom: 0;
             width: 100%;
             height: 60px;
@@ -90,6 +91,7 @@
             margin: 0 0 15px;
         }
     </style>
+
     <script>
         // 刪除確認函數
         function confirmDelete(event, newsId) {
@@ -142,48 +144,52 @@
 </form>
 
 <div class="title">
-    <h2>新聞</h2>
+    <h2>商品管理</h2>
 </div>
 
 <div class="container">
     <section class="main-content">
-        @if($newsItems->isEmpty())
-            <p class="no-data">目前沒有任何新聞資料。</p>
+        @if($productItems->isEmpty())
+            <p class="no-data">目前沒有任何商品資料。</p>
         @else
             <table>
                 <thead style="background-color: #3B6491">
                 <tr>
                     <th style="width: 5%;">ID</th>
-                    <th style="width: 10%;">標題</th>
-                    <th style="width: 45%;">內容</th>
-                    <th style="width: 10%;">日期</th>
-                    <th style="width: 5%;">作者</th>
-                    <th style="width: 10%;">創建時間</th>
-                    <th style="width: 10%;">更新時間</th>
-                    <th style="width: 5%;">新增修改</th>
+                    <th style="width: 5%;">類別</th>
+                    <th style="width: 5%;">賣家</th>
+                    <th style="width: 10%;">商品名稱</th>
+                    <th style="width: 10%;">商品圖片</th>
+                    <th style="width: 5%;">價格</th>
+                    <th style="width: 10%;">庫存</th>
+                    <th style="width: 45%;">遊戲資訊</th>
+                    <th style="width: 5%;">修改</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($newsItems as $news)
+                @foreach($productItems as $product)
                     <tr style="background-color: #3B6491;">
-                        <td>{{ $news->id }}</td>
-                        <td>{{ $news->title }}</td>
-                        <td>{{ $news->content }}</td>
-                        <td>{{ $news->date }}</td>
-                        <td>{{ $news->name }}</td>
-                        <td>{{ $news->created_at }}</td>
-                        <td>{{ $news->updated_at }}</td>
+                        <td>{{ $product->id }}</td>
+                        <td>{{ $product->category_id }}</td>
+                        <td>{{ $product->seller_id}}</td>
+                        <td>{{ $product->name }}</td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <img src="{{ asset('images/' . $product->pictures) }}" alt="{{ $product->name }}" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                        </td>
+                        <td>{{ $product->price }}</td>
+                        <td>{{ $product->inventory }}</td>
+                        <td>{{ $product->detail }}</td>
                         <td>
                             <div style="display: flex; flex-direction: column; align-items: center;">
                                 <!-- 修改按鈕 -->
-                                <a href="{{ route('admin.news.edit', ['id' => $news->id]) }}"
+                                <a href="{{ route('admin.product.edit', ['id' => $product->id]) }}"
                                    style="background-color: #2196F3; color: white; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;
                                    display: flex; justify-content: center; align-items: center; text-align: center; text-decoration: none;
                                    margin-bottom: 10px; width: 30px; height: 50px;">
                                     修<br>改
                                 </a>
                                 <!-- 刪除按鈕 -->
-                                <button onclick="confirmDelete(event, {{ $news->id }})"
+                                <button onclick="confirmDelete(event, {{ $product->id }})"
                                         style="background-color: darkred; color: white; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;
                                         width: 30px; height: 50px;">
                                     刪<br>除

@@ -18,9 +18,16 @@ use App\Http\Controllers\AdminController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::put('/admin/news/{id}', [AdminController::class, 'update'])->name('admin.news.update');
-Route::get('/admin/news/{id}/edit', [AdminController::class, 'edit'])->name('admin.news.edit');
-Route::delete('/admin/news/{id}', [AdminController::class, 'destroy'])->name('admin.news.destroy');
+Route::delete('/admin/news/{id}', [AdminController::class, 'productdestroy'])->name('admin.product.destroy');
+Route::put('/admin/product/{id}', [AdminController::class, 'productupdate'])->name('admin.product.update');
+Route::get('/admin/product/{id}/edit', [AdminController::class, 'productedit'])->name('admin.product.edit');
+
+Route::put('/admin/news/{id}', [AdminController::class, 'newsupdate'])->name('admin.news.update');
+Route::get('/admin/news/{id}/edit', [AdminController::class, 'newsedit'])->name('admin.news.edit');
+Route::delete('/admin/news/{id}', [AdminController::class, 'newsdestroy'])->name('admin.news.destroy');
+
+// 顯示商品頁面（GET 請求）
+Route::get('/admin/product', [AdminController::class, 'product'])->name('admin.product');
 
 // 顯示新聞頁面（GET 請求）
 Route::get('/admin/news', [AdminController::class, 'news'])->name('admin.news');

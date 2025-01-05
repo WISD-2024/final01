@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Sysadmin;
 use App\Models\News;
+use App\Models\Product;
 
 class AdminController extends Controller
 {
@@ -59,7 +60,7 @@ class AdminController extends Controller
         return view('adminnews', compact('newsItems'));
     }
 
-    public function destroy($id)
+    public function newsdestroy($id)
     {
         // 查找資料並刪除
         $news = News::find($id);
@@ -72,16 +73,60 @@ class AdminController extends Controller
         }
     }
 
-    public function edit($id)
+    public function newsedit($id)
     {
         $news = News::findOrFail($id); // 從資料庫中查詢新聞
         return view('adminedit', compact('news'));
     }
 
-    public function update(Request $request, $id)
+    public function newsupdate(Request $request, $id)
     {
         $news = News::findOrFail($id);
         $news->update($request->all()); // 保存更新
         return redirect()->route('admin.news')->with('success', '新聞已成功更新');
+    }
+
+    //商品
+    public function product()
+    {
+        // 從資料庫抓取所有新聞
+        $productItems = Product::all();
+
+        // 傳遞資料到視圖
+        return view('adminproduct', compact('productItems'));
+    }
+
+    public function productedit($id)
+    {
+        // 找到對應的產品
+        $product = Product::findOrFail($id);
+
+        // 返回編輯頁面，並傳遞產品資料
+        return view('adminpedit', compact('product'));
+    }
+
+    public function productupdate(Request $request, $id)
+    {
+        $product = Product::findOrFail($id);
+        $product->update([
+            'price' => $request->price,
+            'inventory' => $request->inventory,
+            'detail' => $request->detail,
+            // 其他需要更新的欄位
+        ]);
+        return redirect()->route('admin.product')->with('success', '商品已成功更新');
+    }
+
+    public function productdestroy($id)
+    {
+        // 查找資料並刪除
+        $product = Product::find($id);
+
+        if ($product) {
+            $product->delete();
+            return response()->json(['message' => '資料已刪除'], 200);
+        } else {
+            return response()->json(['message' => '資料不存在'], 404);
+        }
     }
 }
