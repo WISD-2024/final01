@@ -6,7 +6,8 @@ use App\Models\CartItem;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\OrderDetail;
+use App\Models\Order;
 class CartController extends Controller
 {
 
@@ -32,7 +33,7 @@ class CartController extends Controller
         $productId = $request->input('product_id');
 
         // 獲取目前登入使用者
-        $buyerId = auth()->id(); // Assuming you are using Laravel's built-in authentication
+        $buyerId = auth()->id();
 
         // 檢查購物車中是否已有該產品
         $cartItem = CartItem::where('product_id', $productId)
@@ -40,8 +41,7 @@ class CartController extends Controller
             ->first();
 
         if ($cartItem) {
-            // 如果已存在，增加數量
-            $cartItem->quantity += 1;
+            return redirect()->route('cart');
         } else {
             // 否則新增新的購物車項目
             $cartItem = new CartItem([
@@ -55,8 +55,53 @@ class CartController extends Controller
 
         return back()->with('message', '已成功加入購物車').redirect()->route('cart'); // 或許重新導向到購物車頁面
     }
+    public function checkout(Request $request)
+    {
+        $quantities = $request->input('quantities', []);
 
+        // 驗證數據
+        foreach ($quantities as $cartItemId => $quantity) {
+            CartItem::where('id', $cartItemId)->update(['quantity' => $quantity]);
+        }
 
+        // 創建訂單
+        $products = auth()->user()->cartItems()->with('product')->get();
+        $order = Order::create([
+            'buyer_id' => auth()->id(),
+            'seller_id' => 1,
+            'date' => date('Y-m-d'),
+            'score' => 0,
+            'comment' => $request->input('comment'),
+            'pay' => 1,
+            'price' => 100.00,
+        ]);
+
+        // 將購物車數據轉移到訂單詳細
+        $cartItems = CartItem::where('buyer_id', auth()->id())->get();
+        foreach ($cartItems as $cartItem) {
+            OrderDetail::create([
+                'order_id' => $order->id,
+                'product_id' => $cartItem->product_id,
+                'quantity' => $cartItem->quantity,
+            ]);
+        }
+
+        // 清空購物車
+        CartItem::where('buyer_id', auth()->id())->delete();
+
+        return redirect()->route('summary', $order->id)
+            ->with('success', '訂單已成功提交！');
+    }
+//    public function checkoutPage()
+//    {
+//        $cartItems = CartItem::with('product')->where('buyer_id', auth()->id())->get();
+//
+//        if ($cartItems->isEmpty()) {
+//            return redirect()->route('home')->with('warning', '購物車是空的，請先添加商品！');
+//        }
+//
+//        return view('checkout', compact('cartItems'));
+//    }
 
 
 }

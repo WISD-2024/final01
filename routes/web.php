@@ -9,7 +9,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\OrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -82,6 +82,7 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 
 Route::post('/checkout', [CartController::class, 'checkout'])->name('checkout');
+Route::get('/order/{id}/summary', [OrderController::class, 'summary'])->name('summary');
 
 // 新聞列表頁面
 Route::get('/news', [NewsController::class, 'index'])->name('news');
