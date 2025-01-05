@@ -47,18 +47,27 @@ Route::get('/news', function () {
     return view('news');
 });
 
-Route::get('/news', [NewsController::class, 'news'])->name('news');
+Route::get('/cart', function () {
+    return view('cart');
+});
 
-Route::get('/cart', [CartController::class, 'cart'])->name('cart');
+Route::get('/news', [NewsController::class, 'news'])->name('news');
 
 Route::get('/', [ProductController::class, 'index'])->name('home');
 
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('show');
 
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('/');
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/cart', [CartController::class, 'index'])->name('cart');
+});
 
 Route::middleware(['auth', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

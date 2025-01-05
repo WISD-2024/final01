@@ -1,8 +1,15 @@
 @extends('layouts.app')
 
-@section('title', '歡迎來到 Dream 遊戲商店')
+@section('title', $product->name)
 
 @section('content')
+
+    @if (session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+    @endif
+
     <div class="container mx-auto py-12">
         <div class="flex flex-wrap items-center">
             <!-- 商品圖片 -->
@@ -17,15 +24,17 @@
                 <p class="text-xl text-green-600 font-bold mb-6">價格：${{ number_format($product->price, 2) }}</p>
 
                 <!-- 添加購物車按鈕 -->
-                <form action="/cart" method="POST">
+                <form action="{{ route('cart.add') }}" method="POST">
                     @csrf
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                     <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg">
                         加入購物車
                     </button>
                 </form>
+
+
+
             </div>
         </div>
     </div>
-
 @endsection

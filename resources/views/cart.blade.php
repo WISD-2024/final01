@@ -1,20 +1,25 @@
 @extends('layouts.app')
 
-@section('title', '歡迎來到 Dream 遊戲商店')
+@section('title', '購物車')
 
 @section('content')
-    <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-        {{ __('您的購物車') }}
-    </h2>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("目前沒有任何遊戲!") }}
-                </div>
-            </div>
-        </div>
+
+    <div class="container mx-auto py-12">
+        <h1 class="text-2xl font-bold mb-6">購物車</h1>
+        <ul>
+            @foreach($cartItems as $item)
+                <li class="mb-4 flex items-center">
+                    <img src="{{ asset('images/' . $item->product->pictures) }}" alt="{{ $item->product->name }}" class="w-32 h-32 object-cover rounded-lg mr-4">
+                    <div>
+                        <span class="block">{{ $item->product->name }}</span>
+                        <span class="block">${{ number_format($item->product->price, 2) }}</span>
+                        <span class="block">數量：{{ $item->quantity }}</span>
+                    </div>
+                </li>
+            @endforeach
+
+        </ul>
     </div>
 
 @endsection
