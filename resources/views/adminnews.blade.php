@@ -143,6 +143,7 @@
 
 <div class="title">
     <h2>新聞</h2>
+
 </div>
 
 <div class="container">
@@ -160,7 +161,11 @@
                     <th style="width: 5%;">作者</th>
                     <th style="width: 10%;">創建時間</th>
                     <th style="width: 10%;">更新時間</th>
-                    <th style="width: 5%;">新增修改</th>
+                    <th><a href="{{ route('admin.news.create') }}" style="text-decoration: none;">
+                        <button style="background-color: #2196F3; color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 5px;">
+                            新增
+                        </button>
+                        </a></th>
                 </tr>
                 </thead>
                 <tbody>

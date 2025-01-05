@@ -129,4 +129,51 @@ class AdminController extends Controller
             return response()->json(['message' => '資料不存在'], 404);
         }
     }
+
+    public function newscreate()
+    {
+        return view('admincreate'); // 顯示新增新聞的表單
+    }
+
+    public function newsstore(Request $request)
+    {
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+            'date' => 'required|date',
+            'name' => 'required|string|max:100',
+        ]);
+
+        // 創建新聞資料
+        News::create($validatedData);
+
+        // 成功後返回新聞列表
+        return redirect()->route('admin.news')->with('success', '新聞已成功新增');
+    }
+
+    public function productcreate()
+    {
+        return view('adminpcreate'); // 顯示新增新聞的表單
+    }
+
+    public function productstore(Request $request)
+    {
+        $validatedData = $request->validate([
+            'category_id' => 'required|integer',
+            'seller_id' => 'required|integer',
+            'name' => 'required|string|max:100',
+            'pictures' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
+            'inventory' => 'required|integer|min:0',
+            'detail' => 'required|string',
+        ]);
+
+        // 創建商品資料
+        Product::create($validatedData);
+
+        // 成功後返回商品列表
+        return redirect()->route('admin.product')->with('success', '商品已成功新增');
+    }
+
+
 }

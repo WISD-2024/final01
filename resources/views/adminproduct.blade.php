@@ -163,7 +163,11 @@
                     <th style="width: 5%;">價格</th>
                     <th style="width: 10%;">庫存</th>
                     <th style="width: 45%;">遊戲資訊</th>
-                    <th style="width: 5%;">修改</th>
+                    <th><a href="{{ route('admin.product.create') }}" style="text-decoration: none;">
+                    <button style="background-color: #2196F3; color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 5px;">
+                        新增
+                    </button>
+                    </a></th>
                 </tr>
                 </thead>
                 <tbody>
