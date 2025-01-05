@@ -20,6 +20,25 @@ use App\Http\Controllers\AdminController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/admin/product/create', [AdminController::class, 'productcreate'])->name('admin.product.create');
+Route::post('/admin/product', [AdminController::class, 'productstore'])->name('admin.product.store');
+
+Route::delete('/admin/product/{id}', [AdminController::class, 'productdestroy'])->name('admin.product.destroy');
+Route::put('/admin/product/{id}', [AdminController::class, 'productupdate'])->name('admin.product.update');
+Route::get('/admin/product/{id}/edit', [AdminController::class, 'productedit'])->name('admin.product.edit');
+
+Route::get('/admin/news/create', [AdminController::class, 'newscreate'])->name('admin.news.create');
+Route::post('/admin/news', [AdminController::class, 'newsstore'])->name('admin.news.store');
+
+Route::put('/admin/news/{id}', [AdminController::class, 'newsupdate'])->name('admin.news.update');
+Route::get('/admin/news/{id}/edit', [AdminController::class, 'newsedit'])->name('admin.news.edit');
+Route::delete('/admin/news/{id}', [AdminController::class, 'newsdestroy'])->name('admin.news.destroy');
+
+// 顯示商品頁面（GET 請求）
+Route::get('/admin/product', [AdminController::class, 'product'])->name('admin.product');
+
+// 顯示新聞頁面（GET 請求）
+Route::get('/admin/news', [AdminController::class, 'news'])->name('admin.news');
 
 
 // 顯示登入頁面（GET 請求）
@@ -41,11 +60,13 @@ Route::get('/adminlogin', function () {
 
 Route::get('/', function () {
     return view('home');
-})->name('home');
+});
+
 
 Route::get('/news', function () {
     return view('news');
-});
+})->name('news');
+
 
 Route::get('/cart', function () {
     return view('cart');
@@ -60,6 +81,13 @@ Route::get('/products/{id}', [ProductController::class, 'show'])->name('show');
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 
+Route::post('/checkout', [CartController::class, 'checkout'])->name('checkout');
+
+// 新聞列表頁面
+Route::get('/news', [NewsController::class, 'index'])->name('news');
+
+// 新聞詳細頁面
+Route::get('/news/{id}', [NewsController::class, 'show'])->name('shownews');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

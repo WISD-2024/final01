@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>管理者後台</title>
-    <!-- 外部樣式表 -->
-    <link rel="stylesheet" href="admin.css">
-    <!-- 簡單內嵌樣式 -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>修改新聞</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -46,10 +44,23 @@
             background-color: #4CAF50;
         }
 
+        .title {
+            color: lightgray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: auto;
+            width: 50%;
+            background-color: #3B6491;
+            margin: 20px auto;
+        }
+
         .container {
             display: flex;
             margin: 20px auto;
-            width: 50%;
+            width: 50%; /* 設定容器寬度為50% */
+            height: auto;
             flex-direction: column;
         }
 
@@ -59,9 +70,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            height: 200px;
-            width: 100%;
-            background-color: #3B6491;
+            height: auto;
         }
 
         .footer {
@@ -69,14 +78,31 @@
             color: white;
             text-align: center;
             padding: 10px;
-            position: fixed;
             bottom: 0;
             width: 100%;
             height: 60px;
         }
 
-        h1, h2 {
-            margin: 0 0 15px;
+        th, td {
+            border: 1px solid transparent;
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        button {
+            width: 100%;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #1B88E5;
         }
     </style>
 </head>
@@ -96,10 +122,36 @@
     @csrf
 </form>
 
+<div class="title">
+    <h2>新聞新增</h2>
+</div>
+
 <div class="container">
-    <section class="main-content">
-        <h2>歡迎回來，管理者！</h2>
-    </section>
+    <form action="{{ route('admin.news.store') }}" method="POST">
+        @csrf
+        <table>
+            <thead style="background-color: #3B6491">
+            <tr>
+                <th style="width: 10%;">標題</th>
+                <th style="width: 45%;">內容</th>
+                <th style="width: 10%;">日期</th>
+                <th style="width: 5%;">作者</th>
+                <th style="width: 5%;">新增</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr style="background-color: #3B6491;">
+                <td><input type="text" id="title" name="title" required></td>
+                <td><textarea id="content" name="content" required></textarea></td>
+                <td><input type="date" id="date" name="date" required></td>
+                <td><input type="text" id="name" name="name" required></td>
+                <td>
+                    <button type="submit">提交新增</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
 </div>
 
 <footer class="footer">
