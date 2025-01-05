@@ -18,6 +18,25 @@ use App\Http\Controllers\AdminController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/admin/product/create', [AdminController::class, 'productcreate'])->name('admin.product.create');
+Route::post('/admin/product', [AdminController::class, 'productstore'])->name('admin.product.store');
+
+Route::delete('/admin/product/{id}', [AdminController::class, 'productdestroy'])->name('admin.product.destroy');
+Route::put('/admin/product/{id}', [AdminController::class, 'productupdate'])->name('admin.product.update');
+Route::get('/admin/product/{id}/edit', [AdminController::class, 'productedit'])->name('admin.product.edit');
+
+Route::get('/admin/news/create', [AdminController::class, 'newscreate'])->name('admin.news.create');
+Route::post('/admin/news', [AdminController::class, 'newsstore'])->name('admin.news.store');
+
+Route::put('/admin/news/{id}', [AdminController::class, 'newsupdate'])->name('admin.news.update');
+Route::get('/admin/news/{id}/edit', [AdminController::class, 'newsedit'])->name('admin.news.edit');
+Route::delete('/admin/news/{id}', [AdminController::class, 'newsdestroy'])->name('admin.news.destroy');
+
+// 顯示商品頁面（GET 請求）
+Route::get('/admin/product', [AdminController::class, 'product'])->name('admin.product');
+
+// 顯示新聞頁面（GET 請求）
+Route::get('/admin/news', [AdminController::class, 'news'])->name('admin.news');
 
 
 // 顯示登入頁面（GET 請求）
