@@ -147,7 +147,7 @@
         </div>
 
         <div style="display: flex; justify-content: space-around; align-items: center;">
-            <a href="{{ route('login') }}" class="text-gray-800 dark:text-gray-200" style="margin-right: 10px; padding: 10px 20px; background-color: #73AE22; color: white; border: none; border-radius: 5px; cursor: pointer;">登入</a>
+            <a href="{{ route('login') }}" class="text-gray-800 dark:text-gray-200" style="margin-right: 10px; padding: 10px 10px; background-color: #73AE22; color: white; border: none; border-radius: 5px; cursor: pointer;">登入</a>
             <a href="{{ route('register') }}" class="text-gray-800 dark:text-gray-200" style="padding: 10px 20px; background-color: #316282; color: white; border: none; border-radius: 5px; cursor: pointer;">註冊</a>
         </div>
     </nav>
