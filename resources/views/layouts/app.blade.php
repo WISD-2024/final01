@@ -109,8 +109,18 @@
 
 
         <div style="display: flex; align-items: center;">
-            <input type="text" name="searching" id="searching" placeholder="搜尋..." style="padding: 10px; width: 300px; border: none; border-radius: 5px;">
-            <img id="searchIcon" src="{{ asset('images/search_icon.png') }}" alt="Search Icon" style="cursor: pointer; width: 35px; height: 35px; margin-left: 5px;">
+            <form action="{{ route('search') }}" method="GET" style="display: flex;">
+                <input
+                    type="text"
+                    name="searching"
+                    id="searching"
+                    placeholder="搜尋..."
+                    style="padding: 10px; width: 300px; border: none; border-radius: 5px;"
+                    value="{{ request('searching') }}">
+                <button type="submit" style="background: none; border: none; cursor: pointer;">
+                    <img src="{{ asset('images/search_icon.png') }}" alt="Search Icon" style="width: 35px; height: 35px; margin-left: 5px;">
+                </button>
+            </form>
         </div>
 
         <div style="display: flex; justify-content: space-around; align-items: center;">
@@ -142,8 +152,18 @@
         </div>
 
         <div style="display: flex; align-items: center;">
-            <input type="text" name="searching" id="searching" placeholder="搜尋..." style="padding: 10px; width: 300px; border: none; border-radius: 5px;">
-            <img id="searchIcon" src="{{ asset('images/search_icon.png') }}" alt="Search Icon" style="cursor: pointer; width: 35px; height: 35px; margin-left: 5px;">
+            <form action="{{ route('search') }}" method="GET" style="display: flex;">
+                <input
+                    type="text"
+                    name="searching"
+                    id="searching"
+                    placeholder="搜尋..."
+                    style="padding: 10px; width: 300px; border: none; border-radius: 5px;"
+                    value="{{ request('searching') }}">
+                <button type="submit" style="background: none; border: none; cursor: pointer;">
+                    <img src="{{ asset('images/search_icon.png') }}" alt="Search Icon" style="width: 35px; height: 35px; margin-left: 5px;">
+                </button>
+            </form>
         </div>
 
         <div style="display: flex; justify-content: space-around; align-items: center;">
