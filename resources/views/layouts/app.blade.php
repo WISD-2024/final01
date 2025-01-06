@@ -124,13 +124,13 @@
         </div>
 
         <div style="display: flex; justify-content: space-around; align-items: center;">
-            <a href="{{ route('cart') }}" class="text-gray-800 dark:text-gray-200" style="margin-right: 10px; padding: 10px 20px; background-color: #73AE22; color: white; border: none; border-radius: 5px; cursor: pointer;">購物車</a>
+            <a href="{{ route('cart') }}" class="text-gray-800 dark:text-gray-200" style="margin-right: 10px; padding: 10px 10px; background-color: #73AE22; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 18px;">購物車</a>
         </div>
 
         <div style="display: flex; justify-content: space-around; align-items: center;">
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <x-primary-button class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg" style=" padding: 10px 20px; background-color: #316282; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                <x-primary-button class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg" style=" padding: 10px 10px; background-color: #316282; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 18px;">
                     {{ __('登出') }}
                 </x-primary-button>
             </form>
