@@ -14,7 +14,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <div class="container">
-                        @if($products->isEmpty())
+                        @if($library->isEmpty())
                             <p>目前沒有任何遊戲！</p>
                         @else
                             <div class="container">

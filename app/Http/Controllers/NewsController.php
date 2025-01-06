@@ -14,7 +14,7 @@ class NewsController extends Controller
     }
 
     // 新聞詳細頁面
-    public function shownews($id)
+    public function show($id)
     {
         $newsItem = News::findOrFail($id); // 獲取單篇新聞
         return view('shownews', compact('newsItem'));

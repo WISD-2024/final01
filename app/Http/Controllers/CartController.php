@@ -81,7 +81,7 @@ class CartController extends Controller
         }
 
         // 創建訂單
-        $products = auth()->user()->cartItems()->with('product')->get();
+
         $order = Order::create([
             'buyer_id' => auth()->id(),
             'seller_id' => 1,
@@ -96,6 +96,7 @@ class CartController extends Controller
         $cartItems = CartItem::where('buyer_id', auth()->id())->get();
 
         foreach ($cartItems as $cartItem) {
+            $product = Product::find($cartItem->product_id);
             OrderDetail::create([
                 'order_id' => $order->id,
                 'product_id' => $cartItem->product_id,
@@ -105,7 +106,7 @@ class CartController extends Controller
             Library::updateOrCreate([
                 'buyer_id' => auth()->id(),
                 'product_id' => $cartItem->product_id,
-                'name' => "123",
+                'name' => $product->name,
             ]);
         }
 
