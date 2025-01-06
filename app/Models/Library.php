@@ -9,6 +9,8 @@ class Library extends Model
 {
     use HasFactory;
 
+    protected $table = 'library';
+
     protected $fillable = [
         'buyer_id',
         'product_id',
@@ -20,8 +22,8 @@ class Library extends Model
         return $this->belongsTo(Buyer::class, 'buyer_id');
     }
 
-    public function products()
+    public function product()
     {
-        return $this->belongsTo(Product::class,'product_id');
+        return $this->belongsTo(Product::class, 'product_id');
     }
 }

@@ -7,7 +7,7 @@
     @if($cartItems->isEmpty())
         <p>購物車目前是空的。</p>
     @else
-    <form action="{{ route('checkout') }}" method="POST">
+    <form action="{{ route('preview') }}" method="GET">
         @csrf
             <div class="container mx-auto py-12">
                 <h1 class="text-2xl font-bold mb-6">購物車</h1>
