@@ -119,4 +119,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+//搜尋layout
+Route::get('/search', [ProductController::class, 'search'])->name('search');
+
 require __DIR__.'/auth.php';

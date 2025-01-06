@@ -20,4 +20,12 @@ class ProductController extends Controller
         // 傳遞商品數據到視圖
         return view('show', compact('products'));
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('searching'); // 獲取搜尋關鍵字
+        $products = Product::where('name', 'LIKE', '%' . $query . '%')->get(); // 搜尋商品名稱
+
+        return view('home', compact('products')); // 返回搜尋結果頁面
+    }
 }
