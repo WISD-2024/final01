@@ -45,7 +45,7 @@
 <div class="news-container">
     @foreach ($news as $item)
         <div class="news-item">
-            <a href="{{ route('news.show', $item->id) }}" class="news-link">
+            <a href="{{ route('shownews', $item->id) }}" class="news-link">
                 <div class="news-title">{{ $item->title }}</div>
             </a>
         </div>

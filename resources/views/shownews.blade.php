@@ -28,7 +28,7 @@
 </div>
 <div class="news-container">
     <div class="news-item">
-        <div class="news-date">{{ $newsItem->created_at->format('Y 年 m 月 d 日') }}</div>
+        <div class="news-date">{{ $newsItem->date->format('Y 年 m 月 d 日') }}</div>
         <div class="news-content">{{ $newsItem->content }}</div>
         @if ($newsItem->image)
             <div class="news-image">
