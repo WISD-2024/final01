@@ -81,6 +81,7 @@
             color: white;
             text-align: center;
             padding: 10px;
+            position: fixed;
             bottom: 0;
             width: 100%;
             height: 60px;
@@ -148,27 +149,28 @@
 
 <div class="container">
     <section class="main-content">
-        @if($newsItems->isEmpty())
-            <p class="no-data">目前沒有任何新聞資料。</p>
-        @else
-            <table>
-                <thead style="background-color: #3B6491">
-                <tr>
-                    <th style="width: 5%;">ID</th>
-                    <th style="width: 10%;">標題</th>
-                    <th style="width: 45%;">內容</th>
-                    <th style="width: 10%;">日期</th>
-                    <th style="width: 5%;">作者</th>
-                    <th style="width: 10%;">創建時間</th>
-                    <th style="width: 10%;">更新時間</th>
-                    <th><a href="{{ route('admin.news.create') }}" style="text-decoration: none;">
+        <div>
+        <table>
+            <thead style="background-color: #3B6491">
+            <tr>
+                <th style="width: 5%;">ID</th>
+                <th style="width: 10%;">標題</th>
+                <th style="width: 45%;">內容</th>
+                <th style="width: 10%;">日期</th>
+                <th style="width: 5%;">作者</th>
+                <th style="width: 10%;">創建時間</th>
+                <th style="width: 10%;">更新時間</th>
+                <th>
+                    <a href="{{ route('admin.news.create') }}" style="text-decoration: none;">
                         <button style="background-color: #2196F3; color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 5px;">
                             新增
                         </button>
-                        </a></th>
-                </tr>
-                </thead>
-                <tbody>
+                    </a>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            @if(!$newsItems->isEmpty())
                 @foreach($newsItems as $news)
                     <tr style="background-color: #3B6491;">
                         <td>{{ $news->id }}</td>
@@ -183,26 +185,30 @@
                                 <!-- 修改按鈕 -->
                                 <a href="{{ route('admin.news.edit', ['id' => $news->id]) }}"
                                    style="background-color: #2196F3; color: white; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;
-                                   display: flex; justify-content: center; align-items: center; text-align: center; text-decoration: none;
-                                   margin-bottom: 10px; width: 30px; height: 50px;">
+                                       display: flex; justify-content: center; align-items: center; text-align: center; text-decoration: none;
+                                       margin-bottom: 10px; width: 30px; height: 50px;">
                                     修<br>改
                                 </a>
                                 <!-- 刪除按鈕 -->
                                 <button onclick="confirmDelete(event, {{ $news->id }})"
                                         style="background-color: darkred; color: white; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;
-                                        width: 30px; height: 50px;">
+                                            width: 30px; height: 50px;">
                                     刪<br>除
                                 </button>
                             </div>
-
                         </td>
                     </tr>
                 @endforeach
-                </tbody>
-            </table>
-        @endif
+            @endif
+            </tbody>
+        </table>
+        </div>
     </section>
 </div>
+
+@if($newsItems->isEmpty())
+    <p style="text-align: center; color: lightgray; margin-top: 20px;">目前沒有任何新聞資料。</p>
+@endif
 
 <footer class="footer">
     <p></p>

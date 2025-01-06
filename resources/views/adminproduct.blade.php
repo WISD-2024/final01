@@ -149,9 +149,7 @@
 
 <div class="container">
     <section class="main-content">
-        @if($productItems->isEmpty())
-            <p class="no-data">目前沒有任何商品資料。</p>
-        @else
+        <div>
             <table>
                 <thead style="background-color: #3B6491">
                 <tr>
@@ -205,10 +203,14 @@
                 @endforeach
                 </tbody>
             </table>
-        @endif
+
+        </div>
     </section>
 </div>
 
+@if($productItems->isEmpty())
+    <p style="text-align: center; color: lightgray; margin-top: 20px;">目前沒有任何商品資料。</p>
+@endif
 <footer class="footer">
     <p></p>
 </footer>
