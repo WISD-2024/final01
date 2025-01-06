@@ -11,12 +11,13 @@ class ProductController extends Controller
         $products = Product::all();
         return view('home', compact('products'));
     }
+
     public function show($id)
     {
         // 從資料庫查詢指定商品
-        $product = Product::findOrFail($id);
+        $products = Product::findOrFail($id);
 
         // 傳遞商品數據到視圖
-        return view('show', compact('product'));
+        return view('show', compact('products'));
     }
 }

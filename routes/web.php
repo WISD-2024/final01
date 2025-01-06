@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProductController;
 use App\Models\News;
@@ -81,8 +82,19 @@ Route::get('/products/{id}', [ProductController::class, 'show'])->name('show');
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 
+Route::get('/preview', [CartController::class, 'preview'])->name('preview');
 Route::post('/checkout', [CartController::class, 'checkout'])->name('checkout');
 Route::get('/order/{id}/summary', [OrderController::class, 'summary'])->name('summary');
+
+Route::get('/library', [LibraryController::class, 'index'])->name('library')->middleware('auth');
+
+//Route::get('/library', function () {
+//    return view('library');
+//})->middleware(['auth', 'verified'])->name('/');
+
+//Route::middleware(['auth', 'verified'])->get('/library', function () {
+//    return view('library');
+//})->name('library');
 
 // 新聞列表頁面
 Route::get('/news', [NewsController::class, 'index'])->name('news');
@@ -90,17 +102,9 @@ Route::get('/news', [NewsController::class, 'index'])->name('news');
 // 新聞詳細頁面
 Route::get('/news/{id}', [NewsController::class, 'show'])->name('shownews');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('/');
-
 Route::middleware(['auth'])->group(function () {
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
 });
-
-Route::middleware(['auth', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
 
 
 Route::post('/logout', function () {

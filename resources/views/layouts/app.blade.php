@@ -95,7 +95,7 @@
 @auth
     <nav class="navbar">
         <a href="{{ route('home') }}">首頁</a>
-        <a href="{{ route('dashboard') }}">收藏庫</a>
+        <a href="{{ route('library') }}">收藏庫</a>
         <a href="{{ route('news') }}">新聞</a>
         <div class="dropdown">
             <a href="javascript:void(0)">類別</a>
@@ -129,7 +129,7 @@
 @else
     <nav class="navbar">
         <a href="{{ route('home') }}">首頁</a>
-        <a href="{{ route('dashboard') }}">收藏庫</a>
+        <a href="{{ route('library') }}">收藏庫</a>
         <a href="{{ route('news') }}">新聞</a>
         <div class="dropdown">
             <a href="javascript:void(0)">類別</a>

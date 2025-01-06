@@ -8,6 +8,7 @@ use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use App\Models\OrderDetail;
 use App\Models\Order;
+use App\Models\Library;
 class CartController extends Controller
 {
 
@@ -17,7 +18,13 @@ class CartController extends Controller
         $cartItems = auth()->user()->cartItems()->with('product')->get(); // 加上 with('product') 來取得產品詳細資訊
         return view('cart', compact('cartItems'));
     }
+    public function preview(Request $request)
+    {
+        $cartItems = auth()->user()->cartItems()->with('product')->get();
+        //$totalPrice = $cartItems->sum(fn($item) => $item->product->price * $item->quantity);
 
+        return view('preview', compact('cartItems'));
+    }
     public function add(Request $request)
     {
         if (!Auth::check()) {
@@ -40,9 +47,18 @@ class CartController extends Controller
             ->where('buyer_id', $buyerId)
             ->first();
 
-        if ($cartItem) {
+        $isInLibrary = Library::where('buyer_id', $buyerId)
+            ->where('product_id', $productId)
+            ->exists();
+
+        if ($isInLibrary) {
+            return redirect()->route('cart')
+                ->with('error', '您已經收藏此商品，無法重複購買。');
+        }
+        elseif ($cartItem) {
             return redirect()->route('cart');
-        } else {
+        }
+        else {
             // 否則新增新的購物車項目
             $cartItem = new CartItem([
                 'product_id' => $productId,
@@ -53,7 +69,7 @@ class CartController extends Controller
 
         $cartItem->save(); // 儲存購物車項目
 
-        return back()->with('message', '已成功加入購物車').redirect()->route('cart'); // 或許重新導向到購物車頁面
+        return redirect()->route('cart'); // 或許重新導向到購物車頁面
     }
     public function checkout(Request $request)
     {
@@ -78,30 +94,28 @@ class CartController extends Controller
 
         // 將購物車數據轉移到訂單詳細
         $cartItems = CartItem::where('buyer_id', auth()->id())->get();
+
         foreach ($cartItems as $cartItem) {
             OrderDetail::create([
                 'order_id' => $order->id,
                 'product_id' => $cartItem->product_id,
                 'quantity' => $cartItem->quantity,
             ]);
+
+            Library::updateOrCreate([
+                'buyer_id' => auth()->id(),
+                'product_id' => $cartItem->product_id,
+                'name' => "123",
+            ]);
         }
 
         // 清空購物車
         CartItem::where('buyer_id', auth()->id())->delete();
 
+
         return redirect()->route('summary', $order->id)
             ->with('success', '訂單已成功提交！');
     }
-//    public function checkoutPage()
-//    {
-//        $cartItems = CartItem::with('product')->where('buyer_id', auth()->id())->get();
-//
-//        if ($cartItems->isEmpty()) {
-//            return redirect()->route('home')->with('warning', '購物車是空的，請先添加商品！');
-//        }
-//
-//        return view('checkout', compact('cartItems'));
-//    }
 
 
 }

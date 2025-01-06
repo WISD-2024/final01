@@ -38,7 +38,7 @@ class Product extends Model
         return $this->hasMany(OrderDetail::class);
     }
 
-    public function library()
+    public function libraries()
     {
         return $this->hasMany(Library::class);
     }
