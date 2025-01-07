@@ -104,6 +104,7 @@ class CartController extends Controller
         }
 
         // 創建訂單
+        $cartItems = CartItem::where('buyer_id', auth()->id())->get();
 
         $order = Order::create([
             'buyer_id' => auth()->id(),
@@ -112,11 +113,10 @@ class CartController extends Controller
             'score' => 0,
             'comment' => $request->input('comment'),
             'pay' => 1,
-            'price' => 100.00,
+            'price' => $cartItems->sum(fn($item) => $item->product->price * $item->quantity),
         ]);
 
         // 將購物車數據轉移到訂單詳細
-        $cartItems = CartItem::where('buyer_id', auth()->id())->get();
 
         foreach ($cartItems as $cartItem) {
             $product = Product::find($cartItem->product_id);
