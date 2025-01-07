@@ -69,20 +69,20 @@ Dream遊戲商店
 
 ><遊戲管理>
 
-- 遊戲列表 Route::get('/admin/product', [AdminController::class, 'product'])->name('admin.product');
-- 新增遊戲 Route::get('/admin/product/create', [AdminController::class, 'productcreate'])->name('admin.product.create');
-- 儲存遊戲 Route::post('/admin/product', [AdminController::class, 'productstore'])->name('admin.product.store');
-- 刪除遊戲 Route::delete('/admin/product/{id}', [AdminController::class, 'productdestroy'])->name('admin.product.destroy');
-- 更新遊戲 Route::put('/admin/product/{id}', [AdminController::class, 'productupdate'])->name('admin.product.update');
-- 編輯遊戲 Route::get('/admin/product/{id}/edit', [AdminController::class, 'productedit'])->name('admin.product.edit');
+- 遊戲列表 Route::get('/admin/product', [AdminController::class, 'product'])->name('admin.product');[陳洧倫 3B132068](https://github.com/3B132068)
+- 新增遊戲 Route::get('/admin/product/create', [AdminController::class, 'productcreate'])->name('admin.product.create');[陳洧倫 3B132068](https://github.com/3B132068)
+- 儲存遊戲 Route::post('/admin/product', [AdminController::class, 'productstore'])->name('admin.product.store');[陳洧倫 3B132068](https://github.com/3B132068)
+- 刪除遊戲 Route::delete('/admin/product/{id}', [AdminController::class, 'productdestroy'])->name('admin.product.destroy');[陳洧倫 3B132068](https://github.com/3B132068)
+- 更新遊戲 Route::put('/admin/product/{id}', [AdminController::class, 'productupdate'])->name('admin.product.update');[陳洧倫 3B132068](https://github.com/3B132068)
+- 編輯遊戲 Route::get('/admin/product/{id}/edit', [AdminController::class, 'productedit'])->name('admin.product.edit');[陳洧倫 3B132068](https://github.com/3B132068)
 
 ><新聞管理>
-- 新聞列表 Route::get('/admin/news', [AdminController::class, 'news'])->name('admin.news');
-- 新增新聞 Route::get('/admin/news/create', [AdminController::class, 'newscreate'])->name('admin.news.create');
-- 儲存新聞 Route::post('/admin/news', [AdminController::class, 'newsstore'])->name('admin.news.store');
-- 編輯新聞 Route::get('/admin/news/{id}/edit', [AdminController::class, 'newsedit'])->name('admin.news.edit');
-- 更新新聞 Route::put('/admin/news/{id}', [AdminController::class, 'newsupdate'])->name('admin.news.update');
-- 刪除新聞 Route::delete('/admin/news/{id}', [AdminController::class, 'newsdestroy'])->name('admin.news.destroy');
+- 新聞列表 Route::get('/admin/news', [AdminController::class, 'news'])->name('admin.news');[陳洧倫 3B132068](https://github.com/3B132068)
+- 新增新聞 Route::get('/admin/news/create', [AdminController::class, 'newscreate'])->name('admin.news.create');[陳洧倫 3B132068](https://github.com/3B132068)
+- 儲存新聞 Route::post('/admin/news', [AdminController::class, 'newsstore'])->name('admin.news.store');[陳洧倫 3B132068](https://github.com/3B132068)
+- 編輯新聞 Route::get('/admin/news/{id}/edit', [AdminController::class, 'newsedit'])->name('admin.news.edit');[陳洧倫 3B132068](https://github.com/3B132068)
+- 更新新聞 Route::put('/admin/news/{id}', [AdminController::class, 'newsupdate'])->name('admin.news.update');[陳洧倫 3B132068](https://github.com/3B132068)
+- 刪除新聞 Route::delete('/admin/news/{id}', [AdminController::class, 'newsdestroy'])->name('admin.news.destroy');[陳洧倫 3B132068](https://github.com/3B132068)
 
 ## ERD
 <a href ="https://imgur.com/1xzPWBd"><img src="https://i.imgur.com/1xzPWBd.jpg" title="source: imgur.com" /></a>
