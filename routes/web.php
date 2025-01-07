@@ -36,6 +36,9 @@ Route::put('/admin/news/{id}', [AdminController::class, 'newsupdate'])->name('ad
 Route::get('/admin/news/{id}/edit', [AdminController::class, 'newsedit'])->name('admin.news.edit');
 Route::delete('/admin/news/{id}', [AdminController::class, 'newsdestroy'])->name('admin.news.destroy');
 
+// 產品分類頁面
+Route::get('/category/{categoryId}', [ProductController::class, 'showCategory'])->name('category.show');
+
 // 顯示商品頁面（GET 請求）
 Route::get('/admin/product', [AdminController::class, 'product'])->name('admin.product');
 
@@ -82,6 +85,7 @@ Route::get('/products/{id}', [ProductController::class, 'show'])->name('show');
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+Route::delete('/cart/{id}', [CartController::class, 'remove'])->name('cart.remove');
 
 Route::get('/preview', [CartController::class, 'preview'])->name('preview');
 Route::post('/checkout', [CartController::class, 'checkout'])->name('checkout');
