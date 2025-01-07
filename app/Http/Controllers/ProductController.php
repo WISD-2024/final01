@@ -28,4 +28,11 @@ class ProductController extends Controller
 
         return view('home', compact('products')); // 返回搜尋結果頁面
     }
+
+    public function showCategory($categoryId)
+    {
+        $products = Product::where('category_id', $categoryId)->get();
+
+        return view('home', compact('products'));
+    }
 }

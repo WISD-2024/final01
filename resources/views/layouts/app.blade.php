@@ -16,7 +16,7 @@
         }
         .navbar {
             background: linear-gradient(135deg, #3B6491 , #356B9A , #254E8B , #102370 );
-            overflow: hidden;
+            overflow: visible;
             display: flex;
             justify-content: center;
             width: 50%;
@@ -54,11 +54,13 @@
 
         .dropdown-content {
             display: none;
-            position: fixed;
+            position: absolute;
+            top: 100%;
+            left: 0;
             background-color: rgba(0, 0, 0, 0.7);
             border-radius: 5px;
             padding: 10px;
-            min-width: 200px;
+            min-width: 120px;
             z-index: 1000;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
@@ -69,8 +71,10 @@
 
         .dropdown-content a {
             color: white;
-            display: block;
-            padding: 5px 0;
+            display: block; /* 讓每個選項單獨一行 */
+            padding: 10px 20px; /* 增加左右內邊距讓選項寬一些 */
+            text-align: left; /* 確保文本左對齊 */
+            white-space: nowrap; /* 防止選項被自動換行 */
         }
     </style>
 </head>
@@ -100,10 +104,10 @@
         <div class="dropdown">
             <a href="javascript:void(0)">類別</a>
             <div class="dropdown-content">
-                <a href="#">動作遊戲</a>
-                <a href="#">冒險遊戲</a>
-                <a href="#">運動與競速</a>
-                <a href="#">模擬遊戲</a>
+                <a href="{{ route('category.show', 1) }}">動作遊戲</a>
+                <a href="{{ route('category.show', 2) }}">冒險遊戲</a>
+                <a href="{{ route('category.show', 3) }}">運動與競速</a>
+                <a href="{{ route('category.show', 4) }}">模擬遊戲</a>
             </div>
         </div>
 
