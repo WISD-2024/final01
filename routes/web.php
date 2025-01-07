@@ -81,6 +81,7 @@ Route::get('/products/{id}', [ProductController::class, 'show'])->name('show');
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+Route::delete('/cart/{id}', [CartController::class, 'remove'])->name('cart.remove');
 
 Route::get('/preview', [CartController::class, 'preview'])->name('preview');
 Route::post('/checkout', [CartController::class, 'checkout'])->name('checkout');

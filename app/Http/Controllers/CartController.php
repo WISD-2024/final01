@@ -71,6 +71,29 @@ class CartController extends Controller
 
         return redirect()->route('cart'); // 或許重新導向到購物車頁面
     }
+
+    public function remove($id)
+    {
+        // 確保使用者已登入
+        if (!auth()->check()) {
+            return redirect()->route('login')->with('error', '請先登入。');
+        }
+
+        // 確認購物車項目屬於該使用者
+        $cartItem = CartItem::where('id', $id)
+            ->where('buyer_id', auth()->id())
+            ->first();
+
+        if (!$cartItem) {
+            return redirect()->route('cart')->with('error', '無法找到該購物車項目。');
+        }
+
+        // 刪除該項目
+        $cartItem->delete();
+
+        return redirect()->route('cart')->with('success', '商品已成功移出購物車。');
+    }
+
     public function checkout(Request $request)
     {
         $quantities = $request->input('quantities', []);
