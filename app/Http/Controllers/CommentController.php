@@ -23,7 +23,8 @@ class CommentController extends Controller
         ]);
 
         // 重新導向回商品頁面，並顯示成功訊息
-        return redirect()->route('show', ['product' => $productId])
+        return redirect()->route('show', ['id' => $productId])
             ->with('success', '評論已成功新增！');
     }
+
 }

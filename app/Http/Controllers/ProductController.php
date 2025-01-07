@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Comment;
+
 class ProductController extends Controller
 {
     public function index()
@@ -15,14 +16,13 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        // 從資料庫查詢指定商品
-        $products = Product::findOrFail($id);
+        $product = Product::findOrFail($id); // 找到商品
+        $comments = Comment::where('product_id', $id)->get(); // 取得該商品的評論
 
-        // 傳遞商品數據到視圖
-        return view('show', compact('products'));
-
-        $product = Product::with('comments.user')->findOrFail($id);
-        return view('product.show', ['products' => $product]);
+        return view('show', [
+            'products' => $product,
+            'comments' => $comments,
+        ]);
     }
 
     public function search(Request $request)
