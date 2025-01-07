@@ -148,10 +148,10 @@
         <div class="dropdown">
             <a href="javascript:void(0)">類別</a>
             <div class="dropdown-content">
-                <a href="#">動作遊戲</a>
-                <a href="#">冒險遊戲</a>
-                <a href="#">運動與競速</a>
-                <a href="#">模擬遊戲</a>
+                <a href="{{ route('category.show', 1) }}">動作遊戲</a>
+                <a href="{{ route('category.show', 2) }}">冒險遊戲</a>
+                <a href="{{ route('category.show', 3) }}">運動與競速</a>
+                <a href="{{ route('category.show', 4) }}">模擬遊戲</a>
             </div>
         </div>
 
