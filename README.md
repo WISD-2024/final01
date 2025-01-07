@@ -50,16 +50,20 @@ Dream遊戲商店
 
 ## 系統的主要功能
 ### 訪客/會員 
-- 首頁 Route::get('/', [ProductController::class, 'index'])->name('home'); 
-- 使用者註冊畫頁 (Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
-- 使用者登入畫頁 (Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
-- 查詢遊戲 Route::get('/search', [ProductController::class, 'search'])->name('search');)
-- 各類別顯示餐點 Route::get('/products/{id}', [ProductController::class, 'show'])->name('show');)
+- 首頁 Route::get('/', [ProductController::class, 'index'])->name('home'); [葉佳豪 3B132096](https://github.com/3B132096)
+- 使用者註冊畫頁 (Route::get('register', [RegisteredUserController::class, 'create'])->name('register');[王翊安 3B132075](https://github.com/3B132075)
+- 使用者登入畫頁 (Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');[王翊安 3B132075](https://github.com/3B132075)
+- 查詢遊戲 Route::get('/search', [ProductController::class, 'search'])->name('search');)[陳洧倫 3B132068](https://github.com/3B132068)
+- 遊戲個別頁面 Route::get('/products/{id}', [ProductController::class, 'show'])->name('show');)[王翊安 3B132075](https://github.com/3B132075)[陳洧倫 3B132068](https://github.com/3B132068)
+- 新聞頁面 Route::get('/news', [NewsController::class, 'index'])->name('news');[葉佳豪 3B132096](https://github.com/3B132096)
+- 新聞詳細頁面 Route::get('/news/{id}', [NewsController::class, 'show'])->name('shownews');[葉佳豪 3B132096](https://github.com/3B132096)
+- 收藏庫頁面 Route::get('/library', [LibraryController::class, 'index'])->name('library')->middleware('auth');[王翊安 3B132075](https://github.com/3B132075)
+- 遊戲評論 Route::post('/product/{productId}/comment', [CommentController::class, 'store'])->name('comment.store');[葉佳豪 3B132096](https://github.com/3B132096)[陳洧倫 3B132068](https://github.com/3B132068)
 
 ><訂單>
-- 個別遊戲頁面 Route::get('/products/{id}', [ProductController::class, 'show'])->name('show');
-- 加入購物車 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
-- 結帳並儲存至收藏庫 Route::post('/checkout', [CartController::class, 'checkout'])->name('checkout');
+- 個別遊戲頁面 Route::get('/products/{id}', [ProductController::class, 'show'])->name('show'); [王翊安 3B132075](https://github.com/3B132075)
+- 加入購物車 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add'); [王翊安 3B132075](https://github.com/3B132075)
+- 結帳並儲存至收藏庫 Route::post('/checkout', [CartController::class, 'checkout'])->name('checkout');[王翊安 3B132075](https://github.com/3B132075)
 
 ### 後台管理員
 
@@ -97,7 +101,7 @@ Dream遊戲商店
 ## 初始專案與DB負責的同學
 - 初始專案 [葉佳豪 3B132096](https://github.com/3B132096)
 - DB [王翊安 3B132075](https://github.com/3B132075) [陳洧倫 3B132068](https://github.com/3B132068) [葉佳豪 3B132096](https://github.com/3B132096)
-- readme撰寫[王翊安 3B132075](https://github.com/3B132075) 
+- readme撰寫[王翊安 3B132075](https://github.com/3B132075) [葉佳豪 3B132096](https://github.com/3B132096) [陳洧倫 3B132068](https://github.com/3B132068)
 
 
 ## 額外使用的套件或樣板
