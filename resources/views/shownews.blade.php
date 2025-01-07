@@ -13,7 +13,7 @@
     <style>
         body { font-family: Arial, sans-serif; background-color: #0e3b5a; color: white; }
         .header { text-align: center; padding: 20px; }
-        .news-container { width: 80%; margin: 0 auto; }
+        .news-container { width: 50%; margin: 0 auto; }
         .news-item { background-color: #1c4e70; padding: 20px; border-radius: 8px; }
         .news-title { font-size: 28px; font-weight: bold; }
         .news-date { font-size: 14px; color: #a0c4d4; }
@@ -28,8 +28,10 @@
 </div>
 <div class="news-container">
     <div class="news-item">
-        <div class="news-date">{{ $newsItem->date->format('Y 年 m 月 d 日') }}</div>
-        <div class="news-content">{{ $newsItem->content }}</div>
+        <div class="news-date">
+            {{ \Carbon\Carbon::parse($newsItem->date)->format('Y 年 m 月 d 日') }}
+        </div>
+        <div class="news-content">{!! nl2br(e($newsItem->content)) !!}</div>
         @if ($newsItem->image)
             <div class="news-image">
                 <img src="{{ asset('storage/' . $newsItem->image) }}" alt="新聞圖片">

@@ -3,6 +3,11 @@
 @section('title', '購物車')
 
 @section('content')
+    @if (session('error'))
+        <script>
+            alert("{{ session('error') }}");
+        </script>
+    @endif
     <div class="container mx-auto py-12">
     @if($cartItems->isEmpty())
         <p>購物車目前是空的。</p>
