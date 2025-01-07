@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Comment;
 class ProductController extends Controller
 {
     public function index()
@@ -19,6 +20,9 @@ class ProductController extends Controller
 
         // 傳遞商品數據到視圖
         return view('show', compact('products'));
+
+        $product = Product::with('comments.user')->findOrFail($id);
+        return view('product.show', ['products' => $product]);
     }
 
     public function search(Request $request)

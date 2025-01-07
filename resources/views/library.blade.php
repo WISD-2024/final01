@@ -27,7 +27,7 @@
 
     <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight"
         style="width: 50%; margin: 0 auto; padding-left: 40px; padding-top: 20px;">
-        {{ __('Welcome, ') }}{{ Auth::user()->name }}{{ __('  這是您的收藏庫') }}
+        {{ __('') }}{{ Auth::user()->name }}{{ __('  這是您的收藏庫') }}
     </h2>
 
     <div class="py-12">
