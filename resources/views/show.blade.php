@@ -55,6 +55,41 @@
                                     加入購物車
                                 </button>
                             </form>
+                            @if(session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+
+                            <h2>新增評論</h2>
+
+                            <form action="{{ route('comment.store', $products->id) }}" method="POST">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="author">作者</label>
+                                    <input type="text" name="author" id="author" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="content">評論內容</label>
+                                    <textarea name="content" id="content" class="form-control" rows="4" required></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">提交評論</button>
+                            </form>
+                            $comments = App\Models\Comment::where('product_id', $product->id)->get();
+                            <h3>評論</h3>
+                            @if($comments->isEmpty())
+                                <p>目前沒有任何評論。</p>
+                            @else
+                                <ul>
+                                    @foreach($comments as $comment)
+                                        <li>
+                                            <strong>{{ $comment->author }}</strong>: {{ $comment->content }}
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
                         </td>
                     </tr>
                 </table>

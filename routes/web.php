@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LibraryController;
@@ -125,5 +126,7 @@ Route::middleware('auth')->group(function () {
 
 //搜尋layout
 Route::get('/search', [ProductController::class, 'search'])->name('search');
+
+Route::post('/product/{productId}/comment', [CommentController::class, 'store'])->name('comment.store');
 
 require __DIR__.'/auth.php';

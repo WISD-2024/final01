@@ -140,6 +140,10 @@
             </form>
         </div>
     </nav>
+    <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight"
+        style="width: 50%; margin: 0 auto; padding-left: 320px; padding-top: 20px;">
+        {{ __('Welcome, ') }}{{ Auth::user()->name }}{{ __('') }}
+    </h2>
 @else
     <nav class="navbar">
         <a href="{{ route('home') }}">首頁</a>
