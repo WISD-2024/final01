@@ -16,7 +16,7 @@
         }
         .navbar {
             background: linear-gradient(135deg, #3B6491 , #356B9A , #254E8B , #102370 );
-            overflow: hidden;
+            overflow: visible;
             display: flex;
             justify-content: center;
             width: 50%;
@@ -54,11 +54,13 @@
 
         .dropdown-content {
             display: none;
-            position: fixed;
+            position: absolute;
+            top: 100%;
+            left: 0;
             background-color: rgba(0, 0, 0, 0.7);
             border-radius: 5px;
             padding: 10px;
-            min-width: 200px;
+            min-width: 120px;
             z-index: 1000;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
@@ -69,8 +71,10 @@
 
         .dropdown-content a {
             color: white;
-            display: block;
-            padding: 5px 0;
+            display: block; /* 讓每個選項單獨一行 */
+            padding: 10px 20px; /* 增加左右內邊距讓選項寬一些 */
+            text-align: left; /* 確保文本左對齊 */
+            white-space: nowrap; /* 防止選項被自動換行 */
         }
     </style>
 </head>
