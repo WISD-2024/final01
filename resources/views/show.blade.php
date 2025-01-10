@@ -133,7 +133,7 @@
         <tbody>
         @foreach($comments as $comment)
             <tr>
-                <td style="padding: 8px; border: 1px solid #ddd;">{{ $comment->author }}</td>
+                <td style="padding: 8px; border: 1px solid #ddd;">{{ $comment->buyers->name}}</td>
                 <td style="padding: 8px; border: 1px solid #ddd;">{{ $comment->content }}</td>
             </tr>
         @endforeach

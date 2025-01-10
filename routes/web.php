@@ -62,47 +62,54 @@ Route::get('/adminlogin', function () {
     return view('adminlogin');
 });
 
-//home
-Route::get('/', [ProductController::class, 'index'])->name('home');
+
 Route::get('/', function () {
     return view('home');
 });
 
-//product
-Route::get('/products/{id}', [ProductController::class, 'show'])->name('show');
-//comment
-Route::post('/product/{productId}/comment', [CommentController::class, 'store'])->name('comment.store');
-Route::get('/products/{id}', [ProductController::class, 'show'])->name('show');
-//搜尋layout
-Route::get('/search', [ProductController::class, 'search'])->name('search');
 
-//cart
-Route::get('/cart', [CartController::class, 'index'])->name('cart');
-Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
-Route::delete('/cart/{id}', [CartController::class, 'remove'])->name('cart.remove');
-Route::middleware(['auth'])->group(function () {
-    Route::get('/cart', [CartController::class, 'index'])->name('cart');
-});
+Route::get('/news', function () {
+    return view('news');
+})->name('news');
+
+
 Route::get('/cart', function () {
     return view('cart');
 });
 
-//checkout
+Route::get('/news', [NewsController::class, 'news'])->name('news');
+
+Route::get('/', [ProductController::class, 'index'])->name('home');
+
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('show');
+
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+Route::delete('/cart/{id}', [CartController::class, 'remove'])->name('cart.remove');
+
 Route::get('/preview', [CartController::class, 'preview'])->name('preview');
 Route::post('/checkout', [CartController::class, 'checkout'])->name('checkout');
 Route::get('/order/{id}/summary', [OrderController::class, 'summary'])->name('summary');
 
-//收藏庫
 Route::get('/library', [LibraryController::class, 'index'])->name('library')->middleware('auth');
 
+//Route::get('/library', function () {
+//    return view('library');
+//})->middleware(['auth', 'verified'])->name('/');
+
+//Route::middleware(['auth', 'verified'])->get('/library', function () {
+//    return view('library');
+//})->name('library');
+
 // 新聞列表頁面
-Route::get('/news', function () {
-    return view('news');
-})->name('news');
 Route::get('/news', [NewsController::class, 'index'])->name('news');
 
 // 新聞詳細頁面
 Route::get('/news/{id}', [NewsController::class, 'show'])->name('shownews');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/cart', [CartController::class, 'index'])->name('cart');
+});
 
 
 Route::post('/logout', function () {
@@ -117,8 +124,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+//搜尋layout
+Route::get('/search', [ProductController::class, 'search'])->name('search');
 
-
-
+//comment
+Route::post('/product/{productId}/comment', [CommentController::class, 'store'])->name('comment.store');
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('show');
 
 require __DIR__.'/auth.php';

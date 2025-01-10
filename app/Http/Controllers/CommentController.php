@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -15,10 +16,11 @@ class CommentController extends Controller
             'content' => 'required|string',
         ]);
 
+
         // 新增評論到資料庫
         Comment::create([
             'product_id' => $productId,
-            'author' => $request->input('author'),
+            'buyer_id' => auth()->id(),
             'content' => $request->input('content'),
         ]);
 
