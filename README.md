@@ -1,66 +1,130 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# 系統畫面
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 首頁
+<a href ="https://imgur.com/LCTdZUx"><img src="https://i.imgur.com/LCTdZUx.jpg" title="source: imgur.com" /></a>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 遊戲瀏覽
+<a href ="https://imgur.com/aHNek5a"><img src="https://i.imgur.com/aHNek5a.jpg" title="source: imgur.com" /></a>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 遊戲個別頁面
+<a href ="https://imgur.com/s5n6Kna"><img src="https://i.imgur.com/s5n6Kna.jpg" title="source: imgur.com" /></a>
 
-## Learning Laravel
+## 登入
+<a href ="https://imgur.com/dF6jBAD"><img src="https://i.imgur.com/dF6jBAD.jpg" title="source: imgur.com" /></a>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 註冊
+<a href ="https://imgur.com/7YjCHdO"><img src="https://i.imgur.com/7YjCHdO.jpg" title="source: imgur.com" /></a>
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 購物車
+<a href ="https://imgur.com/lx4sKoz"><img src="https://i.imgur.com/lx4sKoz.jpg" title="source: imgur.com" /></a>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 買家收藏庫
+<a href ="https://imgur.com/aHNek5a"><img src="https://i.imgur.com/aHNek5a.jpg" title="source: imgur.com" /></a>
 
-## Laravel Sponsors
+## 買家評論
+<a href ="https://imgur.com/PbqM2pH"><img src="https://i.imgur.com/PbqM2pH.jpg" title="source: imgur.com" /></a>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 新聞
+<a href ="https://imgur.com/GlDTVEL"><img src="https://i.imgur.com/GlDTVEL.jpg" title="source: imgur.com" /></a>
 
-### Premium Partners
+## 後台登入
+<a href ="https://imgur.com/xwQddYL"><img src="https://i.imgur.com/xwQddYL.jpg" title="source: imgur.com" /></a>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## 後台首頁
+<a href ="https://imgur.com/RXvm0Zk"><img src="https://i.imgur.com/RXvm0Zk.jpg" title="source: imgur.com" /></a>
 
-## Contributing
+## 後台遊戲管理
+編輯:<a href ="https://imgur.com/c7alTyj"><img src="https://i.imgur.com/c7alTyj.jpg" title="source: imgur.com" /></a>
+新增:<a href ="https://imgur.com/iL8VvjY"><img src="https://i.imgur.com/iL8VvjY.jpg" title="source: imgur.com" /></a>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 後台新聞管理
+編輯:<a href ="https://imgur.com/6opaG65"><img src="https://i.imgur.com/6opaG65.jpg" title="source: imgur.com" /></a>
+新增:<a href ="https://imgur.com/NQT2uyc"><img src="https://i.imgur.com/NQT2uyc.jpg" title="source: imgur.com" /></a>
 
-## Code of Conduct
+## 系統名稱及作用
+Dream遊戲商店
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- 讓顧客能線上購買遊戲
 
-## Security Vulnerabilities
+## 系統的主要功能
+### 訪客/會員 
+- 首頁 Route::get('/', [ProductController::class, 'index'])->name('home'); [葉佳豪 3B132096](https://github.com/3B132096)
+- 使用者註冊畫頁 (Route::get('register', [RegisteredUserController::class, 'create'])->name('register');[王翊安 3B132075](https://github.com/3B132075)
+- 使用者登入畫頁 (Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');[王翊安 3B132075](https://github.com/3B132075)
+- 查詢遊戲 Route::get('/search', [ProductController::class, 'search'])->name('search');)[陳洧倫 3B132068](https://github.com/3B132068)
+- 遊戲個別頁面 Route::get('/products/{id}', [ProductController::class, 'show'])->name('show');)[王翊安 3B132075](https://github.com/3B132075)[陳洧倫 3B132068](https://github.com/3B132068)
+- 新聞頁面 Route::get('/news', [NewsController::class, 'index'])->name('news');[葉佳豪 3B132096](https://github.com/3B132096)
+- 新聞詳細頁面 Route::get('/news/{id}', [NewsController::class, 'show'])->name('shownews');[葉佳豪 3B132096](https://github.com/3B132096)
+- 收藏庫頁面 Route::get('/library', [LibraryController::class, 'index'])->name('library')->middleware('auth');[王翊安 3B132075](https://github.com/3B132075)
+- 遊戲評論 Route::post('/product/{productId}/comment', [CommentController::class, 'store'])->name('comment.store');[葉佳豪 3B132096](https://github.com/3B132096)[陳洧倫 3B132068](https://github.com/3B132068)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+><訂單>
+- 個別遊戲頁面 Route::get('/products/{id}', [ProductController::class, 'show'])->name('show'); [王翊安 3B132075](https://github.com/3B132075)
+- 加入購物車 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add'); [王翊安 3B132075](https://github.com/3B132075)
+- 結帳並儲存至收藏庫 Route::post('/checkout', [CartController::class, 'checkout'])->name('checkout');[王翊安 3B132075](https://github.com/3B132075)
 
-## License
+### 後台管理員
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+><遊戲管理>
+
+- 遊戲列表 Route::get('/admin/product', [AdminController::class, 'product'])->name('admin.product');[陳洧倫 3B132068](https://github.com/3B132068)
+- 新增遊戲 Route::get('/admin/product/create', [AdminController::class, 'productcreate'])->name('admin.product.create');[陳洧倫 3B132068](https://github.com/3B132068)
+- 儲存遊戲 Route::post('/admin/product', [AdminController::class, 'productstore'])->name('admin.product.store');[陳洧倫 3B132068](https://github.com/3B132068)
+- 刪除遊戲 Route::delete('/admin/product/{id}', [AdminController::class, 'productdestroy'])->name('admin.product.destroy');[陳洧倫 3B132068](https://github.com/3B132068)
+- 更新遊戲 Route::put('/admin/product/{id}', [AdminController::class, 'productupdate'])->name('admin.product.update');[陳洧倫 3B132068](https://github.com/3B132068)
+- 編輯遊戲 Route::get('/admin/product/{id}/edit', [AdminController::class, 'productedit'])->name('admin.product.edit');[陳洧倫 3B132068](https://github.com/3B132068)
+
+><新聞管理>
+- 新聞列表 Route::get('/admin/news', [AdminController::class, 'news'])->name('admin.news');[陳洧倫 3B132068](https://github.com/3B132068)
+- 新增新聞 Route::get('/admin/news/create', [AdminController::class, 'newscreate'])->name('admin.news.create');[陳洧倫 3B132068](https://github.com/3B132068)
+- 儲存新聞 Route::post('/admin/news', [AdminController::class, 'newsstore'])->name('admin.news.store');[陳洧倫 3B132068](https://github.com/3B132068)
+- 編輯新聞 Route::get('/admin/news/{id}/edit', [AdminController::class, 'newsedit'])->name('admin.news.edit');[陳洧倫 3B132068](https://github.com/3B132068)
+- 更新新聞 Route::put('/admin/news/{id}', [AdminController::class, 'newsupdate'])->name('admin.news.update');[陳洧倫 3B132068](https://github.com/3B132068)
+- 刪除新聞 Route::delete('/admin/news/{id}', [AdminController::class, 'newsdestroy'])->name('admin.news.destroy');[陳洧倫 3B132068](https://github.com/3B132068)
+
+## ERD
+<a href ="https://imgur.com/1xzPWBd"><img src="https://i.imgur.com/1xzPWBd.jpg" title="source: imgur.com" /></a>
+
+
+## 關聯式綱要圖
+<a href ="https://imgur.com/MfI55yS"><img src="https://i.imgur.com/MfI55yS.jpg" title="source: imgur.com" /></a>
+
+
+## 實際資料表欄位設計
+<a href ="https://imgur.com/yFxBIhI"><img src="https://i.imgur.com/yFxBIhI.jpg" title="source: imgur.com" /></a>
+<a href ="https://imgur.com/0FP3Gm1"><img src="https://i.imgur.com/0FP3Gm1.jpg" title="source: imgur.com" /></a>
+<a href ="https://imgur.com/jj0HMBV"><img src="https://i.imgur.com/jj0HMBV.jpg" title="source: imgur.com" /></a>
+
+
+## 初始專案與DB負責的同學
+- 初始專案 [葉佳豪 3B132096](https://github.com/3B132096)
+- DB [王翊安 3B132075](https://github.com/3B132075) [陳洧倫 3B132068](https://github.com/3B132068) [葉佳豪 3B132096](https://github.com/3B132096)
+- readme撰寫[王翊安 3B132075](https://github.com/3B132075) [葉佳豪 3B132096](https://github.com/3B132096) [陳洧倫 3B132068](https://github.com/3B132068)
+
+
+## 額外使用的套件或樣板
+無
+## 系統測試資料存放位置
+
+     final01底下的sql資料夾
+
+## 系統使用者測試帳號
+
+★ 前台
+    
+     帳號：user1@gmail.com
+     密碼：12345678
+
+★ 後台
+
+     帳號：test@gmail.com
+     密碼：12345678
+
+
+## 系統開發人員與工作分配
+- 王翊安:訪客/買家活動圖、實體關聯圖、關聯式資料庫綱要圖、訪客/買家request的路由。
+- 陳洧倫:系統使用案例圖、系統管理員活動圖、系統管理員request的路由。
+- 葉佳豪:賣家活動圖、實體關聯圖、資料表欄位設計、賣家request的路由。
+

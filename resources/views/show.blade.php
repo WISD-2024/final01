@@ -66,37 +66,81 @@
             </td>
         </tr>
     </table>
+
+
+
+    @auth
+    <form action="{{ route('comment.store', $products->id) }}" method="POST">
+        @csrf
+        <div id="comment-form-container" style="width: 50%; margin: auto; margin-bottom: 20px;">
+            <table style="width: 100%; border-collapse: collapse; background-color: #16202D;">
+                <!-- 最上面的表格行 -->
+                <tr>
+                    <td colspan="2" style="padding-left: 30px; width: 100%; text-align: left;">
+                        <h3>新增評論</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- 左上 -->
+                    <td style="padding-left: 30px; vertical-align: top; width: 10%;">
+                        <div class="form-group">
+                            <label for="author">用戶</label>
+                        </div>
+                    </td>
+                    <!-- 右上 -->
+                    <td style="padding-right: 50px; vertical-align: top; width: 90%;">
+                        <div class="form-group">
+                            <label for="content">評論內容</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- 左下 -->
+                    <td style="padding-left: 30px; vertical-align: top;">
+                        <div class="form-group">
+                            <textarea name="author" id="author" class="form-control" rows="1" readonly style="width: 100px; resize: none;">{{ Auth::user()->name }}</textarea>
+                        </div>
+                    </td>
+                    <!-- 右下 -->
+                    <td style="padding-right: 50px; vertical-align: top;">
+                        <div class="form-group">
+                            <textarea name="content" id="content" class="form-control" rows="4" style="width: 100%; height: 150px;" required></textarea>
+                        </div>
+                    </td>
+                </tr>
+                <!-- 最下面的表格行 -->
+                <tr style="padding-bottom: 30px; text-align: right;">
+                    <td colspan="2" style="text-align: right; padding-right: 50px; padding-bottom: 20px;">
+                        <button type="submit" class="btn btn-primary">提交評論</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+    @endauth
+    <table style="width: 50%; border-collapse: collapse; margin: auto; margin-top: 20px; background-color: #16202D;">
+        <thead>
+        <tr>
+            <th colspan="2" style="padding: 8px; border: 1px solid #ddd; text-align: center;">
+                <h3 style="padding-left: 30px; width: 100%; text-align: left;">評論</h3>
+            </th>
+        </tr>
+        <tr>
+            <th style="padding-left: 30px; vertical-align: top; width: 10%;">作者</th>
+            <th style="padding-right: 50px; vertical-align: top; width: 90%;">評論內容</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($comments as $comment)
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ddd;">{{ $comment->author }}</td>
+                <td style="padding: 8px; border: 1px solid #ddd;">{{ $comment->content }}</td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+
+
+
 @endsection
 
-
-<h2>新增評論</h2>
-
-<form action="{{ route('comment.store', $products->id) }}" method="POST">
-    @csrf
-    $products={{ $products->name }}
-    <div class="form-group">
-        <label for="author">作者</label>
-        <input type="text" name="author" id="author" class="form-control" required>
-    </div>
-
-    <div class="form-group">
-        <label for="content">評論內容</label>
-        <textarea name="content" id="content" class="form-control" rows="4" required></textarea>
-    </div>
-
-    <button type="submit" class="btn btn-primary">提交評論</button>
-</form>
-
-
-<h3>評論</h3>
-@if($comments->isEmpty())
-    <p>目前沒有任何評論。</p>
-@else
-    <ul>
-        @foreach($comments as $comment)
-            <li>
-                <strong>{{ $comment->author }}</strong>: {{ $comment->content }}
-            </li>
-        @endforeach
-    </ul>
-@endif
