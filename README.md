@@ -96,6 +96,7 @@ Dream遊戲商店
 <a href ="https://imgur.com/yFxBIhI"><img src="https://i.imgur.com/yFxBIhI.jpg" title="source: imgur.com" /></a>
 <a href ="https://imgur.com/0FP3Gm1"><img src="https://i.imgur.com/0FP3Gm1.jpg" title="source: imgur.com" /></a>
 <a href ="https://imgur.com/jj0HMBV"><img src="https://i.imgur.com/jj0HMBV.jpg" title="source: imgur.com" /></a>
+<a href ="https://imgur.com/29S20iM"><img src="https://i.imgur.com/29S20iM.jpg" title="source: imgur.com" /></a>
 
 
 ## 初始專案與DB負責的同學
@@ -126,5 +127,5 @@ Dream遊戲商店
 ## 系統開發人員與工作分配
 - 王翊安:訪客/買家活動圖、實體關聯圖、關聯式資料庫綱要圖、訪客/買家request的路由。
 - 陳洧倫:系統使用案例圖、系統管理員活動圖、系統管理員request的路由。
-- 葉佳豪:賣家活動圖、實體關聯圖、資料表欄位設計、賣家request的路由。
+- 葉佳豪:買家活動圖、實體關聯圖、資料表欄位設計、買家request的路由。
 
