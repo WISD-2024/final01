@@ -21,7 +21,7 @@
                     <tr>
                         <td>
                             @php
-                                $video = str_replace(".jpg", "", $products->name);
+                                $video = str_replace(".jpg", "", $products->pictures);
                             @endphp
                             @if (file_exists(public_path('videos/' . $video . '.mp4')))
                                 <video autoplay muted controls width=100% height=100%>
